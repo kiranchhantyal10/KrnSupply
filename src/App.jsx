@@ -3,6 +3,7 @@ import Navbar from './Navbar'
 import Hero from './Hero'
 import './App.css'
 import Products from './Products'
+import Collection from './Collection'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
       <Hero />
       <Products />
+      <Collection />
     </>
   )
 }
