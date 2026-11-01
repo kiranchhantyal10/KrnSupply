@@ -54,7 +54,7 @@ function Products() {
         </div>
 
         <div className="product-details">
-          <p className="product-category">KRNxSUPPLY / T-SHIRT</p>
+          <p className="product-category">KRNSUPPLY / T-SHIRT</p>
 
           <h3>STATIC THEORY</h3>
 

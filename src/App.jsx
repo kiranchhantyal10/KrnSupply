@@ -4,6 +4,8 @@ import Hero from './Hero'
 import './App.css'
 import Products from './Products'
 import Collection from './Collection'
+import About from './About'
+import Footer from './Footer'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Hero />
       <Products />
       <Collection />
+      <About />
+      <Footer />
     </>
   )
 }

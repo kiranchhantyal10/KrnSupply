@@ -3,7 +3,7 @@ function Navbar() {
   return (
     <header className="navbar">
       <a href="/" className="logo">
-        KRN SUPPLY
+       KRN <span>SUPPLY</span>
       </a>
 
       <nav className="nav-links" aria-label="Main navigation">

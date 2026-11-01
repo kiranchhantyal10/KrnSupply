@@ -19,6 +19,8 @@
 
 .logo span {
   color: #a3a3a3;
+  font-weight: 400;
+  margin-left: 4px;
 }
 
 .nav-links {
@@ -47,4 +49,27 @@
 
 .shop-link:hover {
   border-color: #ffffff;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    padding: 20px 6%;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 18px;
+    order: 3;
+    width: 100%;
+  }
+
+  .shop-link {
+    padding: 10px 12px;
+    font-size: 0.7rem;
+  }
 }

@@ -6,7 +6,44 @@ const collectionProducts = [
     category: 'OVERSIZED T-SHIRT',
     image: '/images/static-theory-black-back.png',
     colour: 'BLACK',
-    link: 'https://krnxsupply.etsy.com',
+    price: null,
+    link: 'https://krnsupply.etsy.com',
+  },
+  {
+    id: 2,
+    name: 'COMING SOON',
+    category: 'OVERSIZED T-SHIRT',
+    image: '',
+    colour: '',
+    price: null,
+    link: 'https://krnsupply.etsy.com',
+  },
+  {
+    id: 3,
+    name: 'COMING SOON',
+    category: 'OVERSIZED HOODIE',
+    image: '',
+    colour: '',
+    price: null,
+    link: 'https://krnsupply.etsy.com',
+  },
+  {
+    id: 4,
+    name: 'COMING SOON',
+    category: 'OVERSIZED T-SHIRT',
+    image: '',
+    colour: '',
+    price: null,
+    link: 'https://krnsupply.etsy.com',
+  },
+  {
+    id: 5,
+    name: 'COMING SOON',
+    category: 'OVERSIZED HOODIE',
+    image: '',
+    colour: '',
+    price: null,
+    link: 'https://krnsupply.etsy.com',
   },
 ]
 
@@ -14,12 +51,13 @@ function Collection() {
   return (
     <section className="collection" id="collection">
       <div className="collection-heading">
+        <p className="collection-count">05 PRODUCTS / FIRST DROP</p>
         <div>
-          <p>EXPLORE KRNxSUPPLY</p>
+          <p>EXPLORE KRN SUPPLY</p>
           <h2>THE COLLECTION</h2>
         </div>
 
-        <span>01 — CURRENT DROP</span>
+        <span>01 — FIRST DROP</span>
       </div>
 
       <div className="collection-grid">
@@ -31,7 +69,18 @@ function Collection() {
               rel="noopener noreferrer"
               className="collection-image"
             >
-              <img src={product.image} alt={product.name} />
+              {product.image ? (
+                <img src={product.image} alt={product.name} />
+              ) : (
+               <div className="product-placeholder">
+                <span className="product-number">
+                  00{product.id}
+                  </span>
+
+                 <span className="placeholder-logo">KRN</span>
+                 <p>COMING SOON</p>
+               </div>
+                )}
             </a>
 
             <div className="collection-info">
@@ -40,7 +89,7 @@ function Collection() {
                 <p>{product.category}</p>
               </div>
 
-              <span>{product.colour}</span>
+              <span>{product.price ?? 'PRICE TBA'}</span>
             </div>
           </article>
         ))}

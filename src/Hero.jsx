@@ -1,9 +1,9 @@
 
 function Hero() {
   return (
-    <section className="hero" id="collection">
+    <section className="hero" id="hero">
       <div className="hero-content">
-        <p className="hero-label">KRNxSUPPLY — EST. 2026</p>
+        <p className="hero-label">KRN SUPPLY — EST. 2026</p>
 
         <h1>
           BUILT
@@ -12,11 +12,11 @@ function Hero() {
         </h1>
 
         <p className="hero-description">
-          Streetwear for those who refuse to blend in.
-          Designed to stand out. Built to last.
+        Independent streetwear. Distinct designs.
+        Built for those who refuse to blend in.
         </p>
 
-        <a href="https://krnxsupply.etsy.com" className="hero-button">
+        <a href="#collection" className="hero-button">
           EXPLORE THE COLLECTION ↗
         </a>
       </div>
