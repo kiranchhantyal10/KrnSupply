@@ -1,6 +1,7 @@
 
 import Navbar from './Navbar'
 import Hero from './Hero'
+import BrandStatement from './BrandStatement'
 import './App.css'
 import Products from './Products'
 import Collection from './Collection'
@@ -12,6 +13,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <BrandStatement />
       <Products />
       <Collection />
       <About />

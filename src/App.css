@@ -1,5 +1,8 @@
 
-/* Global page layout */
+/* =========================================
+   GLOBAL PAGE LAYOUT
+========================================= */
+
 #root {
   width: 100%;
   min-height: 100vh;
@@ -8,96 +11,264 @@
   flex-direction: column;
 }
 
-/* Hero section */
+/* =========================================
+   HERO SECTION
+========================================= */
+
+
+/* =========================================
+   KRN SUPPLY — EDITORIAL HERO
+========================================= */
+
 .hero {
   position: relative;
+  isolation: isolate;
   display: flex;
   align-items: center;
-  min-height: 680px;
-  padding: 80px 7%;
+  width: 100%;
+  min-height: min(850px, 90vh);
   overflow: hidden;
-  box-sizing: border-box;
-  background: #101010;
-  color: #f5f5f5;
+  background: #090909;
+  color: #f2f0eb;
 }
+
+/* Campaign image */
+
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+/* Image overlay */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.48) 38%,
+      rgba(0, 0, 0, 0.05) 75%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.48) 0%,
+      transparent 35%,
+      rgba(0, 0, 0, 0.12) 100%
+    );
+}
+
+/* Hero content */
 
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 850px;
+  width: 65%;
+  max-width: 900px;
+  padding: 110px 0 125px 7%;
 }
 
 .hero-label {
-  margin-bottom: 32px;
-  color: #a3a3a3;
-  font-size: 0.8rem;
+  margin-bottom: 34px;
+  color: #d2d0cb;
+  font-size: 0.75rem;
+  font-weight: 500;
   letter-spacing: 3px;
 }
 
 .hero h1 {
-  margin: 0 0 28px;
-  color: #f5f5f5;
-  font-size: clamp(4rem, 10vw, 9rem);
+  margin: 0 0 30px;
+  color: #f2f0eb;
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 7.5vw, 7.5rem);
   font-weight: 800;
-  line-height: 0.85;
-  letter-spacing: -0.07em;
+  line-height: 0.82;
+  letter-spacing: -0.075em;
 }
 
 .hero-description {
-  max-width: 480px;
-  margin-bottom: 32px;
-  color: #b3b3b3;
-  font-size: 1rem;
-  line-height: 1.8;
+  margin-bottom: 34px;
+  color: #d0ceca;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
 }
 
+/* Hero CTA */
+
 .hero-button {
-  display: inline-block;
-  padding: 16px 22px;
-  border: 1px solid #737373;
-  color: #ffffff;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 17px 24px;
+  border: 1px solid rgba(242, 240, 235, 0.75);
+  color: #f2f0eb;
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
   text-decoration: none;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .hero-button:hover {
-  background: #ffffff;
-  color: #101010;
+  background: #f2f0eb;
+  border-color: #f2f0eb;
+  color: #090909;
+  transform: translateY(-3px);
 }
+
+.hero-button:focus-visible {
+  outline: 2px solid #f2f0eb;
+  outline-offset: 5px;
+}
+
+/* Editorial side information */
 
 .hero-side-text {
   position: absolute;
-  right: 7%;
-  bottom: 36px;
+  top: 12%;
+  right: 5%;
+  z-index: 1;
   display: flex;
-  gap: 24px;
-  color: #737373;
+  flex-direction: column;
+  gap: 22px;
+  color: #e2dfd9;
   font-size: 0.65rem;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
+  line-height: 1.6;
 }
 
-/* Mobile layout */
-@media (max-width: 640px) {
+/* Bottom information */
+
+.hero-bottom {
+  position: absolute;
+  right: 5%;
+  bottom: 35px;
+  left: 5%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(242, 240, 235, 0.5);
+  color: #e2dfd9;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   HERO — TABLET
+========================================= */
+
+@media (max-width: 900px) {
   .hero {
-    min-height: 580px;
-    padding: 64px 6%;
+    min-height: 720px;
+  }
+
+  .hero-content {
+    width: 75%;
   }
 
   .hero h1 {
-    font-size: clamp(3.5rem, 14vw, 6rem);
+    font-size: clamp(4rem, 10vw, 7rem);
   }
 
   .hero-side-text {
-    right: auto;
-    left: 6%;
-    flex-direction: column;
-    gap: 8px;
+    right: 4%;
+    font-size: 0.58rem;
   }
 }
 
-/* Featured products section */
+/* =========================================
+   HERO — MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 760px;
+    align-items: flex-end;
+  }
+
+  .hero-image {
+    object-position: 75% center;
+
+  }
+
+  .hero-overlay {
+  background:
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.96) 0%,
+      rgba(0, 0, 0, 0.88) 35%,
+      rgba(0, 0, 0, 0.45) 65%,
+      rgba(0, 0, 0, 0.08) 100%
+    );
+}
+
+  .hero-content {
+    width: 100%;
+    max-width: none;
+    padding: 0 6% 115px;
+  }
+
+  .hero-label {
+    margin-bottom: 24px;
+    font-size: 0.65rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.5rem, 13vw, 5.5rem);
+    margin-bottom: 22px;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+  }
+
+  .hero-button {
+    padding: 15px 18px;
+    font-size: 0.68rem;
+  }
+
+  .hero-side-text {
+    top: 25px;
+    right: 6%;
+    font-size: 0.55rem;
+    gap: 10px;
+  }
+
+  .hero-bottom {
+    right: 6%;
+    bottom: 22px;
+    left: 6%;
+    font-size: 0.52rem;
+    letter-spacing: 1px;
+  }
+}
+
+
+/* =========================================
+   FEATURED PRODUCT SECTION
+========================================= */
+
 .products {
   padding: 100px 7%;
   background: #0a0a0a;
@@ -131,8 +302,9 @@
 }
 
 .product-image {
-  background: #f4f4f4;
+  position: relative;
   overflow: hidden;
+  background: #f4f4f4;
 }
 
 .product-image img {
@@ -177,6 +349,8 @@
   margin-bottom: 24px;
 }
 
+/* Product button */
+
 .product-button {
   display: inline-block;
   padding: 16px 24px;
@@ -185,33 +359,27 @@
   text-decoration: none;
   font-size: 0.8rem;
   letter-spacing: 1px;
-  transition: all 0.2s ease;
+  background: transparent;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .product-button:hover {
-  background: #fff;
-  color: #000;
+  background-color: #fff;
+  color: #0a0a0a;
+  border-color: #fff;
+  transform: translateY(-3px);
 }
 
-@media (max-width: 700px) {
-  .products {
-    padding: 70px 6%;
-  }
-
-  .product-card {
-    grid-template-columns: 1fr;
-    gap: 35px;
-  }
-
-  .product-details h3 {
-    font-size: 2rem;
-  }
+.product-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
 }
 
 /* Product image controls */
-.product-image {
-  position: relative;
-}
 
 .image-controls {
   position: absolute;
@@ -231,7 +399,14 @@
   padding: 10px 16px;
   font-size: 0.75rem;
   letter-spacing: 1px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
 }
+
+/* Selected controls */
 
 .image-controls button.active,
 .colour-button.selected {
@@ -239,6 +414,29 @@
   color: #111;
   border-color: #fff;
 }
+
+/* Control hover */
+
+.image-controls button:hover,
+.colour-button:hover {
+  border-color: #fff;
+  transform: translateY(-2px);
+}
+
+.image-controls button.active:hover,
+.colour-button.selected:hover {
+  background: #e5e5e5;
+}
+
+/* Keyboard accessibility */
+
+.image-controls button:focus-visible,
+.colour-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Colour selectors */
 
 .colour-options {
   display: flex;
@@ -250,12 +448,27 @@
   background: transparent;
 }
 
-.colour-button:hover {
-  border-color: #fff;
+/* Featured product mobile */
+
+@media (max-width: 700px) {
+  .products {
+    padding: 70px 6%;
+  }
+
+  .product-card {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .product-details h3 {
+    font-size: 2rem;
+  }
 }
 
+/* =========================================
+   COLLECTION SECTION
+========================================= */
 
-/* Featured collection */
 .collection {
   padding: 100px 7%;
   background: #101010;
@@ -288,6 +501,15 @@
   letter-spacing: 2px;
 }
 
+.collection-count {
+  margin-top: 14px;
+  color: #777;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+
+/* Collection grid */
+
 .collection-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -296,7 +518,14 @@
 
 .collection-card {
   min-width: 0;
+  transition: transform 0.3s ease;
 }
+
+.collection-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Collection images */
 
 .collection-image {
   display: block;
@@ -310,14 +539,16 @@
 .collection-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: contain;
   transition: transform 0.4s ease;
 }
 
-.collection-image:hover img {
+.collection-card:hover .collection-image img {
   transform: scale(1.04);
 }
+
+/* Product information */
 
 .collection-info {
   display: flex;
@@ -325,6 +556,7 @@
   align-items: flex-start;
   gap: 12px;
   padding-top: 18px;
+  min-height: 65px;
 }
 
 .collection-info h3 {
@@ -341,11 +573,59 @@
   letter-spacing: 1px;
 }
 
+/* Collection placeholders */
+
+.product-placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #1c1c1c, #101010);
+  border: 1px solid #292929;
+  box-sizing: border-box;
+  transition: background 0.3s ease;
+}
+
+.product-placeholder:hover {
+  background: #222;
+}
+
+.product-placeholder .placeholder-logo {
+  color: #f5f5f5;
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 8px;
+}
+
+.product-placeholder p {
+  margin-top: 16px;
+  color: #888;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+}
+
+.product-placeholder .product-number {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: #888;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+}
+
+/* Collection tablet */
+
 @media (max-width: 800px) {
   .collection-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Collection mobile */
 
 @media (max-width: 520px) {
   .collection {
@@ -362,14 +642,11 @@
     gap: 16px;
   }
 }
-.collection-count {
-  margin-top: 14px;
-  color: #777;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-}
 
-/* About KRNSupply */
+/* =========================================
+   ABOUT SECTION
+========================================= */
+
 .about {
   padding: 110px 7%;
   background: #0a0a0a;
@@ -411,6 +688,8 @@
   letter-spacing: 2px;
 }
 
+/* About mobile */
+
 @media (max-width: 600px) {
   .about {
     padding: 75px 6%;
@@ -422,7 +701,10 @@
   }
 }
 
-/* Footer */
+/* =========================================
+   FOOTER
+========================================= */
+
 .footer {
   padding: 70px 7% 25px;
   background: #050505;
@@ -474,10 +756,17 @@
   color: #ccc;
   text-decoration: none;
   font-size: 0.85rem;
+  transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
   color: #fff;
+}
+
+.footer-links a:focus-visible,
+.footer-logo:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
 }
 
 .footer-bottom {
@@ -490,6 +779,8 @@
   font-size: 0.7rem;
   letter-spacing: 1px;
 }
+
+/* Footer mobile */
 
 @media (max-width: 650px) {
   .footer-main {
@@ -505,77 +796,111 @@
   }
 }
 
+/* =========================================
+   REDUCED MOTION ACCESSIBILITY
+========================================= */
 
-/* Upcoming product placeholders */
-.product-placeholder {
-  width: 100%;
-  height: 100%;
-  min-height: 250px;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+
+/* =========================================
+   KRN SUPPLY — BRAND STATEMENT
+========================================= */
+
+.brand-statement {
+  position: relative;
+  padding: 130px 7% 45px;
+  background: #0a0a0a;
+  color: #f2f0eb;
+  border-top: 1px solid #292929;
+}
+
+.brand-statement-top,
+.brand-statement-bottom {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, #1c1c1c, #101010);
-  border: 1px solid #292929;
-  box-sizing: border-box;
-  transition: background 0.3s ease;
+  gap: 20px;
+  color: #888888;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
 }
 
-.product-placeholder:hover {
-  background: #222;
+.brand-statement-content {
+  max-width: 1100px;
+  margin: 125px auto 135px;
 }
 
-.product-placeholder span {
-  color: #f5f5f5;
-  font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: 8px;
-}
-
-.product-placeholder p {
-  margin-top: 16px;
-  color: #888;
-  font-size: 0.7rem;
+.brand-statement-label {
+  margin-bottom: 30px;
+  color: #999999;
+  font-size: 0.75rem;
   letter-spacing: 3px;
 }
 
-.product-number {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  color: #888;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
+.brand-statement h2 {
+  margin: 0;
+  color: #f2f0eb;
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 700;
+  line-height: 0.88;
+  letter-spacing: -0.075em;
 }
 
-.collection-card {
-  transition: transform 0.3s ease;
+.brand-statement-description {
+  max-width: 430px;
+  margin-top: 45px;
+  margin-left: 35%;
+  color: #999999;
+  font-size: 1rem;
+  line-height: 1.8;
 }
 
-
-.collection-info {
-  min-height: 65px;
+.brand-statement-bottom {
+  padding-top: 20px;
+  border-top: 1px solid #292929;
 }
 
-.product-placeholder {
-  position: relative;
-}
+/* =========================================
+   BRAND STATEMENT — MOBILE
+========================================= */
 
-.product-placeholder .product-number {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  color: #888;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-}
+@media (max-width: 600px) {
+  .brand-statement {
+    padding: 85px 6% 30px;
+  }
 
-.product-placeholder .placeholder-logo {
-  color: #f5f5f5;
-  font-size: 2.5rem;
-  font-weight: 800;
-  letter-spacing: 8px;
-}
-.collection-image {
-  aspect-ratio: 4 / 5;
+  .brand-statement-top,
+  .brand-statement-bottom {
+    font-size: 0.52rem;
+    letter-spacing: 1px;
+  }
+
+  .brand-statement-content {
+    margin: 100px 0;
+  }
+
+  .brand-statement-label {
+    margin-bottom: 24px;
+    font-size: 0.62rem;
+  }
+
+  .brand-statement h2 {
+    font-size: clamp(3.2rem, 12vw, 5rem);
+  }
+
+  .brand-statement-description {
+    margin: 35px 0 0;
+    max-width: 340px;
+    font-size: 0.9rem;
+  }
 }

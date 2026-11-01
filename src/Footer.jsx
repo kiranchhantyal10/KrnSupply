@@ -4,7 +4,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-main">
         <div className="footer-brand">
-          <a href="/" className="footer-logo">
+          <a href="#hero" className="footer-logo">
             KRN <span>SUPPLY</span>
           </a>
 

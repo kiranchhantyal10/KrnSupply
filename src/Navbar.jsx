@@ -2,7 +2,7 @@ import './Navbar.css'
 function Navbar() {
   return (
     <header className="navbar">
-      <a href="/" className="logo">
+      <a href="#hero" className="logo">
        KRN <span>SUPPLY</span>
       </a>
 
