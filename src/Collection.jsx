@@ -4,7 +4,7 @@ const collectionProducts = [
     id: 1,
     name: 'STATIC THEORY',
     category: 'OVERSIZED T-SHIRT',
-    image: '/images/static-theory-black-back.png',
+    image: '/images/static-theory/black-back.png',
     colour: 'BLACK',
     price: null,
     link: 'https://krnsupply.etsy.com',
