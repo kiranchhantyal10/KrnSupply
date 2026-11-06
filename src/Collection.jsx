@@ -11,10 +11,10 @@ const collectionProducts = [
   },
   {
     id: 2,
-    name: 'COMING SOON',
+    name: 'Private Frequency',
     category: 'OVERSIZED T-SHIRT',
-    image: '',
-    colour: '',
+    image: '/private-frequency/black-back.png',
+    colour: 'Black',
     price: null,
     link: 'https://krnsupply.etsy.com',
   },
